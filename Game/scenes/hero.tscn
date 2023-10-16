@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxl8v0yk3bckw"]
+
+[ext_resource type="Script" path="res://scripts/hero.gd" id="1_2wxka"]
+[ext_resource type="Texture2D" uid="uid://cvha43p2oekrn" path="res://pictures/tilemaps/test_tiles.png" id="1_u3q6k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mjnj"]
+atlas = ExtResource("1_u3q6k")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1i18p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mjnj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdhc7"]
+size = Vector2(13, 5.5)
+
+[node name="Hero" type="CharacterBody2D"]
+script = ExtResource("1_2wxka")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_1i18p")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5.25)
+shape = SubResource("RectangleShape2D_qdhc7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -23)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
