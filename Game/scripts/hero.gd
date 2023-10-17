@@ -32,6 +32,7 @@ func _physics_process(delta):
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		print("position: ",position.x , " ", position.y)
 		velocity.y = JUMP_VELOCITY
 	elif Input.is_action_pressed("sneak") and is_on_floor():
 		is_sneaking = true
