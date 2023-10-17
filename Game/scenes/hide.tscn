@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8qm2qygc668u"]
+
+[ext_resource type="Texture2D" uid="uid://c2a550arjc38t" path="res://pictures/tilemaps/open_door.png" id="1_faaqp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65jdj"]
+size = Vector2(16, 32)
+
+[node name="Hide" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_faaqp")
+
+[node name="Area2D" type="Area2D" parent="." groups=["hide"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["hide"]]
+shape = SubResource("RectangleShape2D_65jdj")
