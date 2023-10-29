@@ -17,6 +17,7 @@ func _physics_process(delta):
 
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
+	
 	if Input.is_action_pressed("ui_up")  and is_on_floor() and interactive_areas.size() > 0: # replace with check if item that can hide 
 		
 		var area : Area2D = interactive_areas[interactive_areas.size()-1]
@@ -26,9 +27,13 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_left"):
 		$Area2D/CollisionShapeLeft.disabled = false
 		$Area2D/CollisionShapeRight.disabled = true
+		$AnimatedSprite2D.set_flip_h( false )
+		$AnimatedSprite2D.play("move")
 	elif Input.is_action_just_pressed("ui_right"):
 		$Area2D/CollisionShapeLeft.disabled = true
 		$Area2D/CollisionShapeRight.disabled = false
+		$AnimatedSprite2D.set_flip_h( true )
+		$AnimatedSprite2D.play("move")
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -41,13 +46,14 @@ func _physics_process(delta):
 		return
 	
 	reset_sprite()
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	
 	if direction:
 		velocity.x = direction * SPEED
+		$AnimatedSprite2D.play("move")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		$AnimatedSprite2D.play("idle")	
+		
 
 	move_and_slide()
 
@@ -57,16 +63,17 @@ func reset_sprite():
 	z_index = 0
 
 func hide_in(area: Area2D):
+	$AnimatedSprite2D.play("idle")
 	velocity.x = 0
 	velocity.y = 0
 	var Shape:RectangleShape2D = area.get_node("CollisionShape2D").shape
 	
-	modulate = Color(0.5,0.5,0.5)
+	modulate = Color("#353461")
 	
 	# probably 
 	position.x = area.get_parent().position.x # + Shape.size.x
-	position.y = area.get_parent().position.y + Shape.size.y/4
-	z_index = -1
+	position.y = area.get_parent().position.y +8
+	z_index = -2
 	
 	is_hidden = true
 
