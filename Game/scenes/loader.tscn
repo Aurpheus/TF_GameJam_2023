@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://crakbihrne4fh"]
+[gd_scene load_steps=3 format=3 uid="uid://crakbihrne4fh"]
 
 [ext_resource type="Script" path="res://scripts/loader.gd" id="1_jrxq7"]
+[ext_resource type="PackedScene" uid="uid://bk23h155nbu8" path="res://scenes/menus/pause.tscn" id="2_jfy2r"]
 
 [node name="Loader" type="Node2D"]
 process_mode = 3
@@ -21,17 +22,4 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="pause" type="Control" parent="menus"]
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ColorRect" type="ColorRect" parent="menus/pause"]
-z_index = 1240
-z_as_relative = false
-layout_mode = 0
-offset_top = -8.0
-offset_right = 320.0
-offset_bottom = 184.0
-color = Color(0.113725, 0.0823529, 0.207843, 1)
+[node name="pause" parent="menus" instance=ExtResource("2_jfy2r")]

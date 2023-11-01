@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk23h155nbu8"]
+
+[ext_resource type="Theme" uid="uid://cor8s7fx2ocmk" path="res://basic.tres" id="1_4m8gf"]
+[ext_resource type="Script" path="res://scripts/pause.gd" id="1_xb3mm"]
+
+[node name="pause" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_xb3mm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1100
+z_as_relative = false
+layout_mode = 0
+offset_top = -8.0
+offset_right = 320.0
+offset_bottom = 184.0
+color = Color(0.113725, 0.0823529, 0.207843, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 121.0
+offset_top = 19.0
+offset_right = 198.0
+offset_bottom = 52.0
+theme = ExtResource("1_4m8gf")
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Unpause" type="Button" parent="ColorRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 110.0
+offset_top = 52.0
+offset_right = 209.0
+offset_bottom = 75.0
+theme = ExtResource("1_4m8gf")
+text = "Unpause"
+
+[node name="Quit" type="Button" parent="ColorRect"]
+texture_filter = 1
+offset_left = 110.0
+offset_top = 151.0
+offset_right = 209.0
+offset_bottom = 174.0
+theme = ExtResource("1_4m8gf")
+text = "Quit
+"
+
+[connection signal="pressed" from="ColorRect/Unpause" to="." method="_on_unpause_pressed"]
+[connection signal="pressed" from="ColorRect/Quit" to="." method="_on_quit_pressed"]

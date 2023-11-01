@@ -1261,7 +1261,7 @@ animations = [{
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_4hivp")
-spawnPoints = Array[Vector2]([Vector2(-24, 119), Vector2(304, 119)])
+spawnPoints = Array[Vector2]([Vector2(-31, 184.244), Vector2(304, 119)])
 spawnIndex = 1
 
 [node name="TileMap" type="TileMap" parent="."]
