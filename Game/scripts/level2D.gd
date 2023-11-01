@@ -11,6 +11,7 @@ func _ready():
 func startup():
 	if spawnPoints.size() > 0:
 		var inst = load("res://scenes/hero.tscn").instantiate()
+		inst.name= "Hero"
 		inst.position.x  = spawnPoints[spawnIndex].x
 		inst.position.y  = spawnPoints[spawnIndex].y
 		add_child(inst)
@@ -19,4 +20,4 @@ func startup():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+		pass
