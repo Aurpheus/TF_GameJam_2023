@@ -1,12 +1,12 @@
-[gd_scene load_steps=36 format=3 uid="uid://chng08fagg7lh"]
+[gd_scene load_steps=31 format=3 uid="uid://chng08fagg7lh"]
 
 [ext_resource type="Texture2D" uid="uid://cvha43p2oekrn" path="res://pictures/tilemaps/test_tiles.png" id="1_gimxc"]
 [ext_resource type="Script" path="res://scripts/level2D.gd" id="1_wkwvq"]
+[ext_resource type="PackedScene" uid="uid://koos4f4dayl" path="res://scenes/ennemies/ennemi_1.tscn" id="2_5k8pe"]
 [ext_resource type="Texture2D" uid="uid://dl4shnklxumjj" path="res://pictures/tilemaps/inside_tileset_v1.png" id="2_wdi1c"]
 [ext_resource type="Texture2D" uid="uid://bhnq7ueb25n0n" path="res://pictures/tilemaps/inside_tileset_v2.png" id="3_aq3l5"]
 [ext_resource type="PackedScene" uid="uid://b8qm2qygc668u" path="res://scenes/hide.tscn" id="4_0y7nd"]
 [ext_resource type="Texture2D" uid="uid://b4u0hphrk8edt" path="res://pictures/tilemaps/sewer_tileset.png" id="5_xt1en"]
-[ext_resource type="Texture2D" uid="uid://dv0d34krcxwc6" path="res://pictures/sprites/ennemis/salamender/salamender-Sheet.png" id="6_reci0"]
 [ext_resource type="Texture2D" uid="uid://dxflj2gxwc7ld" path="res://pictures/tilemaps/animated_sewers/animated_sewer2.png" id="8_s51eu"]
 [ext_resource type="Texture2D" uid="uid://bet44kwb8fn3s" path="res://pictures/tilemaps/animated_sewers/animated_sewer1.png" id="9_kq4mh"]
 
@@ -1105,42 +1105,6 @@ sources/1 = SubResource("TileSetAtlasSource_kyty7")
 sources/2 = SubResource("TileSetAtlasSource_5ryhn")
 sources/4 = SubResource("TileSetAtlasSource_luh6u")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yj7ps"]
-atlas = ExtResource("6_reci0")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_11aa2"]
-atlas = ExtResource("6_reci0")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u5wg6"]
-atlas = ExtResource("6_reci0")
-region = Rect2(96, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_017jd"]
-atlas = ExtResource("6_reci0")
-region = Rect2(144, 0, 48, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ihi0t"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yj7ps")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_11aa2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u5wg6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_017jd")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ov4i7"]
 atlas = ExtResource("8_s51eu")
 region = Rect2(0, 0, 24, 24)
@@ -1261,8 +1225,11 @@ animations = [{
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_wkwvq")
-spawnPoints = Array[Vector2]([Vector2(-24, 119), Vector2(304, 119)])
+spawnPoints = Array[Vector2]([Vector2(-31, 184.244), Vector2(304, 119)])
 spawnIndex = 1
+
+[node name="ennemi1" parent="." instance=ExtResource("2_5k8pe")]
+position = Vector2(44, 165)
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -1295,13 +1262,6 @@ layer_3/y_sort_enabled = false
 layer_3/y_sort_origin = 0
 layer_3/z_index = 3
 layer_3/tile_data = PackedInt32Array()
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-position = Vector2(88, 184)
-scale = Vector2(0.666667, 0.666667)
-sprite_frames = SubResource("SpriteFrames_ihi0t")
-autoplay = "default"
 
 [node name="Hide" parent="." instance=ExtResource("4_0y7nd")]
 position = Vector2(168, 176)

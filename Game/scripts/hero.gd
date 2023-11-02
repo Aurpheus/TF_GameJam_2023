@@ -17,7 +17,6 @@ func _physics_process(delta):
 
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
-	
 	if Input.is_action_pressed("ui_up")  and is_on_floor() and interactive_areas.size() > 0: # replace with check if item that can hide 
 		
 		var area : Area2D = interactive_areas[interactive_areas.size()-1]
@@ -89,3 +88,6 @@ func _on_area_2d_area_exited(area : Area2D):
 		if area != interactive_area:
 			t.append(area)
 	interactive_areas = t
+	
+func process_ennemy(ennemiName : String):
+	print("Game over")	

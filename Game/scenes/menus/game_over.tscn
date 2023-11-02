@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu3ey22dm6ur8"]
+
+[ext_resource type="Theme" uid="uid://cor8s7fx2ocmk" path="res://basic.tres" id="1_6tg2a"]
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_pdh5e"]
+
+[node name="gameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_pdh5e")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1705
+layout_mode = 0
+offset_top = -8.0
+offset_right = 320.0
+offset_bottom = 184.0
+color = Color(0.113725, 0.0823529, 0.207843, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 112.0
+offset_top = 24.0
+offset_right = 208.0
+offset_bottom = 47.0
+theme = ExtResource("1_6tg2a")
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Desc" type="Label" parent="ColorRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 40.0
+offset_top = 56.0
+offset_right = 280.0
+offset_bottom = 144.0
+theme = ExtResource("1_6tg2a")
+text = "You are now a gooey salamender..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Continue" type="Button" parent="ColorRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 64.0
+offset_top = 136.0
+offset_right = 144.0
+offset_bottom = 160.0
+theme = ExtResource("1_6tg2a")
+text = "Continue"
+
+[node name="Quit" type="Button" parent="ColorRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 176.0
+offset_top = 136.0
+offset_right = 256.0
+offset_bottom = 160.0
+theme = ExtResource("1_6tg2a")
+text = "Quit"
+
+[connection signal="pressed" from="ColorRect/Continue" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect/Quit" to="." method="_on_button_2_pressed"]

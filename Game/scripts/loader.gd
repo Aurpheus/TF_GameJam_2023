@@ -3,12 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	load_default_map()
-	
-func load_default_map():
-	var inst = load("res://scenes/levels/intro/test_level.tscn").instantiate()
-	inst.spawnIndex = 0
-	$Level.add_child(inst)
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,4 +20,10 @@ func pause():
 	
 func get_hero():	
 	return $Level/Level/Hero
+	
+func load_Start_Map():
+	var inst = load("res://scenes/level2D.tscn").instantiate()
+	inst.spawnIndex = 0
+	$Level.add_child(inst)
+		
 

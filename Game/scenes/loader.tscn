@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://crakbihrne4fh"]
+[gd_scene load_steps=5 format=3 uid="uid://crakbihrne4fh"]
 
 [ext_resource type="Script" path="res://scripts/loader.gd" id="1_jrxq7"]
 [ext_resource type="PackedScene" uid="uid://bk23h155nbu8" path="res://scenes/menus/pause.tscn" id="2_jfy2r"]
+[ext_resource type="PackedScene" uid="uid://dalv1jjofhjpu" path="res://scenes/menus/title.tscn" id="3_u0xoy"]
+[ext_resource type="PackedScene" uid="uid://bu3ey22dm6ur8" path="res://scenes/menus/game_over.tscn" id="4_3f16k"]
 
 [node name="Loader" type="Node2D"]
 process_mode = 3
@@ -23,3 +25,8 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="pause" parent="menus" instance=ExtResource("2_jfy2r")]
+
+[node name="Title" parent="menus" instance=ExtResource("3_u0xoy")]
+
+[node name="gameOver" parent="menus" instance=ExtResource("4_3f16k")]
+visible = false

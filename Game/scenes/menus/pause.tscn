@@ -44,6 +44,7 @@ text = "Unpause"
 
 [node name="Quit" type="Button" parent="ColorRect"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 110.0
 offset_top = 151.0
 offset_right = 209.0
